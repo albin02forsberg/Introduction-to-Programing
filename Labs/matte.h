@@ -22,30 +22,33 @@ double macLaurin(int e){
     return sum;
 }
 
-// Can't seem to solve this one yet... 
+// Calculates approximately the area of a circe
 
-float areaCirc(int r) {
+float areaCirc(int radius) {
     float area = 0;
 
-    for(int y = -r; y <= r; ++y){
-        for(int x = -r; x <= r; ++x){
-            if(x*x + y*y < r*r){
-                area+= 1;
+    for(int y = -radius; y <= radius; ++y){
+        for(int x = -radius; x <= radius; ++x){
+            if(x*x + y*y < radius*radius ){
+                area += 1;
             }
         }
-        area += std::sqrtf(r*r + y*y);
     }
 
     return area;
 }
 
-double approxPi(int r){
-    return areaCirc(r) / (r*r);
+// Breaks out Pi from the equation A = Pi*r^2 and calculates approximately Pi
+
+double approxPi(int radius){
+    return areaCirc(radius) / (radius * radius);
 }
 
+// Test function to approximate the value of Pi
+
 void testPi(){
-    for(int i = 1; i < 1000; i*=2){
-        std::cout << approxPi(i) << std::endl;
+    for(int radius = 1; radius < 100000; radius = radius * 2){
+        std::cout << approxPi(radius) << std::endl;
     }
 }
 
