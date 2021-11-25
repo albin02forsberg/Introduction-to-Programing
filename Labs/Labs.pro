@@ -7,4 +7,6 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    chars.h \
+    fillArray.h \
     matte.h
