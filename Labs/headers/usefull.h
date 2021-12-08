@@ -1,17 +1,20 @@
 #ifndef USEFULL_H
 #define USEFULL_H
 
+#include <stdlib.h>
+#include <cassert>
+#include <string>
+#include <cstdlib>
+#include <time.h>
+#include <vector>
 
-//              ARRAY UTILITIES
+//              SPECIAL UTILITIES
 //
 //      Usefull functions for standard
 //      arrays in c++
 //
 //
 
-#include <stdlib.h>
-#include <cassert>
-#include <string>
 
 // GENERAL UTILITIES
 
@@ -20,6 +23,15 @@ namespace usefull {
 void printArray(const int arr[], int length){
     std::cout << "[ ";
     for(int i = 0; i < length; i++){
+        std::cout << arr[i] << " ";
+    }
+
+    std::cout << "]" << std::endl;
+}
+
+void printArray(std::vector<int> arr){
+    std::cout << "[ ";
+    for(int i = 0; i < arr.size(); i++){
         std::cout << arr[i] << " ";
     }
 
@@ -38,9 +50,9 @@ int contains(const int arr[], int lenght, int x){
 // isSorted needs to have an array with min-length
 // of two elements.
 
-int isSorted(const int arr[], int lenght){
-    assert(lenght > 1);
-    for(int i = 0; i < lenght-1; i++){
+int isSorted(const int arr[], int length){
+    assert(length > 1);
+    for(int i = 0; i < length-1; i++){
         if(arr[i] <= arr[i+1]){
             continue;
         } else {
@@ -116,6 +128,26 @@ std::string trim(const std::string str){
 
     return trimmed;
 }
+
+
+int randomInt(){
+
+    return(rand());
+}
+
+
+void swapVal(int *Pa, int *Pb){
+    int temp = *Pa;
+    *Pa = *Pb;
+    *Pb = temp;
+}
+
+void swapVal(double *Pa, double *Pb){
+    double temp = *Pa;
+    *Pa = *Pb;
+    *Pb = temp;
+}
+
 }
 
 #endif // USEFULL_H
